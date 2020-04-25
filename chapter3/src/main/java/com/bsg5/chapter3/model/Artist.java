@@ -33,7 +33,7 @@ public class Artist {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Artist)) return false;
-        Artist artist = (Artist) o;
+        final var artist = (Artist) o;
         return Objects.equals(getName(), artist.getName());
     }
 
