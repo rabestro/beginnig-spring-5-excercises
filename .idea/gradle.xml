@@ -12,6 +12,23 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/chapter10" />
+            <option value="$PROJECT_DIR$/chapter10custom" />
+            <option value="$PROJECT_DIR$/chapter10jpa" />
+            <option value="$PROJECT_DIR$/chapter2" />
+            <option value="$PROJECT_DIR$/chapter3" />
+            <option value="$PROJECT_DIR$/chapter4" />
+            <option value="$PROJECT_DIR$/chapter5" />
+            <option value="$PROJECT_DIR$/chapter5anno" />
+            <option value="$PROJECT_DIR$/chapter5common" />
+            <option value="$PROJECT_DIR$/chapter5xml" />
+            <option value="$PROJECT_DIR$/chapter6" />
+            <option value="$PROJECT_DIR$/chapter7" />
+            <option value="$PROJECT_DIR$/chapter8" />
+            <option value="$PROJECT_DIR$/chapter9common" />
+            <option value="$PROJECT_DIR$/chapter9jpa" />
+            <option value="$PROJECT_DIR$/chapter9mongodb" />
+            <option value="$PROJECT_DIR$/chapter9test" />
           </set>
         </option>
         <option name="useQualifiedModuleNames" value="true" />
