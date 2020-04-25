@@ -7,8 +7,7 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-public abstract class AbstractMusicService implements MusicService,
-        Resettable {
+public abstract class AbstractMusicService implements MusicService, Resettable {
     private Map<String, Artist> bands = new HashMap<>();
 
     protected String transformArtist(String input) {
@@ -24,24 +23,23 @@ public abstract class AbstractMusicService implements MusicService,
         bands.clear();
     }
 
-    private Artist getArtist(String name) {
-        String normalizedName = transformArtist(name);
-        return bands.computeIfAbsent(normalizedName,
-                s -> new Artist(normalizedName));
+    private Artist getArtist(final String name) {
+        final var normalizedName = transformArtist(name);
+        return bands.computeIfAbsent(normalizedName, s -> new Artist(normalizedName));
     }
 
     @Override
-    public Song getSong(String artistName, String name) {
-        Artist artist = getArtist(artistName);
-        String normalizedTitle = transformSong(name);
+    public Song getSong(final String artistName, final String name) {
+        final var artist = getArtist(artistName);
+        final var normalizedTitle = transformSong(name);
         return artist
                 .getSongs()
                 .computeIfAbsent(normalizedTitle, Song::new);
     }
 
     @Override
-    public List<Song> getSongsForArtist(String artist) {
-        List<Song> songs = new ArrayList<>(
+    public List<Song> getSongsForArtist(final String artist) {
+        final List<Song> songs = new ArrayList<>(
                 getArtist(artist)
                         .getSongs()
                         .values()
@@ -51,9 +49,8 @@ public abstract class AbstractMusicService implements MusicService,
     }
 
     @Override
-    public List<String> getMatchingSongNamesForArtist(String artist,
-                                                      String prefix) {
-        String normalizedPrefix = transformSong(prefix)
+    public List<String> getMatchingSongNamesForArtist(final String artist, final String prefix) {
+        final var normalizedPrefix = transformSong(prefix)
                 .toLowerCase();
         return getArtist(artist)
                 .getSongs()
@@ -68,8 +65,8 @@ public abstract class AbstractMusicService implements MusicService,
     }
 
     @Override
-    public List<String> getMatchingArtistNames(String prefix) {
-        String normalizedPrefix = transformArtist(prefix)
+    public List<String> getMatchingArtistNames(final String prefix) {
+        final var normalizedPrefix = transformArtist(prefix)
                 .toLowerCase();
         return bands
                 .keySet()
@@ -82,8 +79,8 @@ public abstract class AbstractMusicService implements MusicService,
     }
 
     @Override
-    public Song voteForSong(String artistName, String name) {
-        Song song = getSong(artistName, name);
+    public Song voteForSong(final String artistName, final String name) {
+        final var song = getSong(artistName, name);
         song.setVotes(song.getVotes() + 1);
         return song;
     }
