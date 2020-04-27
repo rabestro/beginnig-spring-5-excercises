@@ -4,7 +4,9 @@ import com.bsg5.chapter3.model.Song;
 
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.stream.Stream;
 
+import static java.util.stream.IntStream.range;
 import static org.testng.Assert.assertEquals;
 
 public class MusicServiceTests {
@@ -22,11 +24,13 @@ public class MusicServiceTests {
     }
 
     void populateService(MusicService service) {
-        iterateOverModel(data -> {
-            for (int i = 0; i < (Integer) data[2]; i++) {
-                service.voteForSong((String) data[0], (String) data[1]);
-            }
-        });
+//        iterateOverModel(data -> {
+//            for (int i = 0; i < (Integer) data[2]; i++) {
+//                service.voteForSong((String) data[0], (String) data[1]);
+//            }
+//        });
+        iterateOverModel(data -> range(0, (Integer) data[2])
+                .forEach(i -> service.voteForSong((String) data[0], (String) data[1])));
     }
 
     void reset(MusicService service) {
