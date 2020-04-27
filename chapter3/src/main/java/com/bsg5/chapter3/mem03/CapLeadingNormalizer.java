@@ -12,8 +12,7 @@ public class CapLeadingNormalizer implements Normalizer {
     public String transform(String input) {
         StringJoiner joiner = new StringJoiner(" ");
         Stream
-                .of(input.trim().split("\\s"))
-                .filter(s -> !s.isBlank())
+                .of(input.trim().split("\\s+"))
                 .map(s ->
                         Character.toUpperCase(s.charAt(0)) +
                                 s.substring(1).toLowerCase()
