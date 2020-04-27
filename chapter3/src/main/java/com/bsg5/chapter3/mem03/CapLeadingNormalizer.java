@@ -3,21 +3,15 @@ package com.bsg5.chapter3.mem03;
 import com.bsg5.chapter3.Normalizer;
 import org.springframework.stereotype.Component;
 
-import java.util.StringJoiner;
-import java.util.stream.Stream;
+import java.util.Arrays;
+import java.util.stream.Collectors;
 
 @Component("bar")
 public class CapLeadingNormalizer implements Normalizer {
     @Override
     public String transform(String input) {
-        StringJoiner joiner = new StringJoiner(" ");
-        Stream
-                .of(input.trim().split("\\s+"))
-                .map(s ->
-                        Character.toUpperCase(s.charAt(0)) +
-                                s.substring(1).toLowerCase()
-                )
-                .forEach(joiner::add);
-        return joiner.toString();
+        return Arrays.stream(input.trim().split("\\s+"))
+                .map(word -> word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase())
+                .collect(Collectors.joining(" "));
     }
 }

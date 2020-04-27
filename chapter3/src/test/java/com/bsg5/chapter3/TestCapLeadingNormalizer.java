@@ -14,7 +14,8 @@ public class TestCapLeadingNormalizer {
         return new Object[][]{
                 {"this is a test", "This Is A Test"},
                 {" This IS a test ", "This Is A Test"},
-                {"this     is   a test", "This Is A Test"}
+                {"this     is   a test", "This Is A Test"},
+                {"     WE nEEd to  use    Trim     ", "We Need To Use Trim"}
         };
     }
 
