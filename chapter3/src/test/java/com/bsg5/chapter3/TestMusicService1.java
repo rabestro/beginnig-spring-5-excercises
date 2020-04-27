@@ -7,8 +7,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.annotations.Test;
 
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.Set;
 
 import static org.testng.Assert.assertEquals;
@@ -25,9 +23,8 @@ public class TestMusicService1 extends AbstractTestNGSpringContextTests {
     @Test
     public void testConfiguration() {
         assertNotNull(context);
-        Set<String> definitions = new HashSet<>(
-                Arrays.asList(context.getBeanDefinitionNames())
-        );
+
+        var definitions = Set.of(context.getBeanDefinitionNames());
 
         // uncomment if you'd like to see the entire set of defined beans
         definitions.forEach(System.out::println);
