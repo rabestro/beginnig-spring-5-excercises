@@ -37,13 +37,12 @@ public class TestMusicService10 extends AbstractTestNGSpringContextTests {
         ApplicationContext context;
         if (config instanceof String) {
             context = new ClassPathXmlApplicationContext(config.toString());
+        } else if (config instanceof Class<?>) {
+            context = new AnnotationConfigApplicationContext((Class<?>) config);
         } else {
-            if (config instanceof Class<?>) {
-                context = new AnnotationConfigApplicationContext((Class<?>) config);
-            } else {
-                throw new RuntimeException("Invalid configuration argument: " + config);
-            }
+            throw new RuntimeException("Invalid configuration argument: " + config);
         }
+
         MusicService service = context.getBean(MusicService.class);
         method.accept(service);
     }
