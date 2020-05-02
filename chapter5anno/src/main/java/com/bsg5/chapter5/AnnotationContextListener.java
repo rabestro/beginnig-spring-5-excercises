@@ -12,12 +12,12 @@ import javax.servlet.annotation.WebListener;
 public class AnnotationContextListener implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent event) {
-        ApplicationContext context = buildAnnotationContext();
+        var context = buildAnnotationContext();
         event.getServletContext().setAttribute("context", context);
     }
 
     private ApplicationContext buildAnnotationContext() {
-        AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
+        var context = new AnnotationConfigWebApplicationContext();
         context.scan("com.bsg5.chapter3.mem03");
         context.refresh();
         return context;
