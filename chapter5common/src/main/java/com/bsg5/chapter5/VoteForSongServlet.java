@@ -16,13 +16,12 @@ import static java.util.Objects.isNull;
 public class VoteForSongServlet extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        var context = (ApplicationContext) req
-                .getServletContext()
-                .getAttribute("context");
+        var context = (ApplicationContext) req.getServletContext().getAttribute("context");
         var service = context.getBean(MusicService.class);
         var mapper = new ObjectMapper();
         var artist = req.getParameter("artist");
         var song = req.getParameter("song");
+
         if (isNull(artist) || isNull(song)) {
             log("Missing data in request: requires artist and song parameters");
             resp.setStatus(500);
@@ -30,8 +29,8 @@ public class VoteForSongServlet extends HttpServlet {
             log("Voting for artist " + artist + ", song " + song);
             service.voteForSong(artist, song);
             resp.setStatus(200);
-            resp.getWriter().println(mapper.writeValueAsString(service.getSong(artist, song))
-            );
+            resp.getWriter()
+                    .println(mapper.writeValueAsString(service.getSong(artist, song)));
         }
     }
 }
