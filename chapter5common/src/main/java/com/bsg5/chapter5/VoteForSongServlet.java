@@ -10,18 +10,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import static java.util.Objects.isNull;
+
 @WebServlet(urlPatterns = "/vote")
 public class VoteForSongServlet extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        ApplicationContext context = (ApplicationContext) req
+        var context = (ApplicationContext) req
                 .getServletContext()
                 .getAttribute("context");
-        MusicService service = context.getBean(MusicService.class);
-        ObjectMapper mapper = new ObjectMapper();
-        String artist = req.getParameter("artist");
-        String song = req.getParameter("song");
-        if (artist == null || song == null) {
+        var service = context.getBean(MusicService.class);
+        var mapper = new ObjectMapper();
+        var artist = req.getParameter("artist");
+        var song = req.getParameter("song");
+        if (isNull(artist) || isNull(song)) {
             log("Missing data in request: requires artist and song parameters");
             resp.setStatus(500);
         } else {
