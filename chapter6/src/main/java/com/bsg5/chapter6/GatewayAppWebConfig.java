@@ -20,7 +20,7 @@ public class GatewayAppWebConfig implements WebMvcConfigurer {
 
     @Bean
     public ViewResolver jtwigViewResolver() {
-        JtwigViewResolver viewResolver = new JtwigViewResolver();
+        final var viewResolver = new JtwigViewResolver();
         viewResolver.setPrefix("web:/WEB-INF/templates/");
         viewResolver.setSuffix(".jtwig.html");
         return viewResolver;

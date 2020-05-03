@@ -27,21 +27,17 @@ public class GetArtistsExceptionController {
 
     @ExceptionHandler(ArtistNotFoundException.class)
     public ModelAndView handleCustomException(ArtistNotFoundException ex) {
-
-        ModelAndView model = new ModelAndView("error");
-        model.addObject("message", ex.getMessage());
-        model.addObject("statusCode", 404);
-        return model;
+        return new ModelAndView("error")
+                .addObject("message", ex.getMessage())
+                .addObject("statusCode", 404);
 
     }
 
     @ExceptionHandler(Exception.class)
     public ModelAndView handleAllExceptions(Exception ex) {
-
-        ModelAndView model = new ModelAndView("error");
-        model.addObject("message", ex.getMessage());
-        model.addObject("statusCode", 500);
-        return model;
+        return new ModelAndView("error")
+                .addObject("message", ex.getMessage())
+                .addObject("statusCode", 500);
     }
 
 }
