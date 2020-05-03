@@ -11,27 +11,34 @@ import org.springframework.web.context.WebApplicationContext;
 import org.testng.annotations.Test;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
 @Test
 @WebAppConfiguration
 @ContextConfiguration(classes = GatewayAppWebConfig.class)
-public class TestGreetingController extends AbstractTestNGSpringContextTests {
+public class TestVoteForSongController extends AbstractTestNGSpringContextTests {
 
-  @Autowired
-  private WebApplicationContext wac;
+    @Autowired
+    private WebApplicationContext wac;
 
-  private MockMvc mockMvc;
+    private MockMvc mockMvc;
 
-  @Test
-  public void greetingTest() throws Exception {
-    this.mockMvc = MockMvcBuilders.webAppContextSetup(this.wac).build();
+    @Test
+    public void voteTestWithoutParameters() throws Exception {
+        this.mockMvc = MockMvcBuilders.webAppContextSetup(this.wac).build();
 
-    this.mockMvc.perform(get("/greeting")
+        this.mockMvc.perform(get("/vote")
         .accept(MediaType.ALL))
-        .andExpect(status().isOk())
+                .andExpect(status().is4xxClientError());
+    }
 
-;
-  }
+    @Test
+    public void voteTestWithParameters() throws Exception {
+        this.mockMvc = MockMvcBuilders.webAppContextSetup(this.wac).build();
+
+        this.mockMvc.perform(post("/vote").param("song", "jump").param("artist", "van halen")
+                .accept(MediaType.ALL))
+                .andExpect(status().isAccepted());
+    }
 }

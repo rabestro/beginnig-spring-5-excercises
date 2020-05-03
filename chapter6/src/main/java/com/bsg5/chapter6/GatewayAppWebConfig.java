@@ -25,4 +25,5 @@ public class GatewayAppWebConfig implements WebMvcConfigurer {
         viewResolver.setSuffix(".jtwig.html");
         return viewResolver;
     }
+
 }
