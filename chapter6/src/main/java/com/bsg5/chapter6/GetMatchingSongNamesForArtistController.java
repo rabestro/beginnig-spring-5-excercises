@@ -20,11 +20,10 @@ public class GetMatchingSongNamesForArtistController {
     @GetMapping("/songnames")
     @ResponseBody
     public ResponseEntity<List<String>> getMatchingSongNamesForArtist(
-            @RequestParam(name="artist") String artist,
-            @RequestParam(name="prefix") String prefix
+            @RequestParam(name = "artist") String artist,
+            @RequestParam(name = "prefix") String prefix
     ) {
-        List<String> songNames = service.getMatchingSongNamesForArtist(artist, prefix);
-
+        var songNames = service.getMatchingSongNamesForArtist(artist, prefix);
         return new ResponseEntity<>(songNames, HttpStatus.OK);
     }
 }

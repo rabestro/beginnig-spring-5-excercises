@@ -19,11 +19,8 @@ public class GetMatchingArtistNamesController {
 
     @GetMapping("/artists")
     @ResponseBody
-    public ResponseEntity<List<String>> getMatchingArtistNames(
-            @RequestParam(name="prefix") String prefix
-    ) {
-        List<String> artistNames = service.getMatchingArtistNames(prefix);
-
+    public ResponseEntity<List<String>> getMatchingArtistNames(@RequestParam(name = "prefix") String prefix) {
+        var artistNames = service.getMatchingArtistNames(prefix);
         return new ResponseEntity<>(artistNames, HttpStatus.OK);
     }
 }

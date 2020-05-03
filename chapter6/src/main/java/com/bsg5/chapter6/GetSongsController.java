@@ -27,9 +27,9 @@ public class GetSongsController {
             @PathVariable("artist") final String artist,
             @PathVariable("name") final String name
     ) {
-        String artistDecoded = URLDecoder.decode(artist, StandardCharsets.UTF_8);
-        String nameDecoded = URLDecoder.decode(name, StandardCharsets.UTF_8);
-        Song song = service.getSong(artistDecoded, nameDecoded);
+        var artistDecoded = URLDecoder.decode(artist, StandardCharsets.UTF_8);
+        var nameDecoded = URLDecoder.decode(name, StandardCharsets.UTF_8);
+        var song = service.getSong(artistDecoded, nameDecoded);
 
         return new ResponseEntity<>(song, HttpStatus.OK);
     }
@@ -40,7 +40,7 @@ public class GetSongsController {
             @RequestParam(name = "artist") String artist
     ) {
         System.out.println(artist);
-        List<Song> data = service.getSongsForArtist(artist);
+        var data = service.getSongsForArtist(artist);
 
         return new ResponseEntity<>(data, HttpStatus.OK);
     }
