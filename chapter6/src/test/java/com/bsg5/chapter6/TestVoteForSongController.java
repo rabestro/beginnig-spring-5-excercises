@@ -29,7 +29,7 @@ public class TestVoteForSongController extends AbstractTestNGSpringContextTests 
         this.mockMvc = MockMvcBuilders.webAppContextSetup(this.wac).build();
 
         this.mockMvc.perform(get("/vote")
-        .accept(MediaType.ALL))
+                .accept(MediaType.ALL))
                 .andExpect(status().is4xxClientError());
     }
 
@@ -37,7 +37,9 @@ public class TestVoteForSongController extends AbstractTestNGSpringContextTests 
     public void voteTestWithParameters() throws Exception {
         this.mockMvc = MockMvcBuilders.webAppContextSetup(this.wac).build();
 
-        this.mockMvc.perform(post("/vote").param("song", "jump").param("artist", "van halen")
+        this.mockMvc.perform(post("/vote")
+                .param("song", "jump")
+                .param("artist", "van halen")
                 .accept(MediaType.ALL))
                 .andExpect(status().isAccepted());
     }

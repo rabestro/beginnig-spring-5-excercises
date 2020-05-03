@@ -36,7 +36,8 @@ public class TestGetMatchingArtistNamesController extends AbstractTestNGSpringCo
     public void testGetMatchingArtistNames() throws Exception {
         this.mockMvc = MockMvcBuilders.webAppContextSetup(this.wac).build();
 
-        this.mockMvc.perform(get("/artists").param("prefix", "van")
+        this.mockMvc.perform(get("/artists")
+                .param("prefix", "van")
                 .accept(MediaType.ALL))
                 .andExpect(status().isOk());
     }

@@ -47,7 +47,8 @@ public class TestGetSongsController extends AbstractTestNGSpringContextTests {
     public void getSongsByArtistTest() throws Exception {
         this.mockMvc = MockMvcBuilders.webAppContextSetup(this.wac).build();
 
-        this.mockMvc.perform(get("/songs").param("artist", "van halen")
+        this.mockMvc.perform(get("/songs")
+                .param("artist", "van halen")
                 .accept(MediaType.ALL))
                 .andExpect(status().isOk());
     }

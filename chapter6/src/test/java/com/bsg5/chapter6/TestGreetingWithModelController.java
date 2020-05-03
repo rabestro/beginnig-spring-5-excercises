@@ -29,9 +29,8 @@ public class TestGreetingWithModelController extends AbstractTestNGSpringContext
         this.mockMvc = MockMvcBuilders.webAppContextSetup(this.wac).build();
 
         this.mockMvc.perform(get("/greeting/hello")
-            .accept(MediaType.ALL))
-            .andExpect(status().isOk())
-            .andExpect(view().name("greeting"));
-
+                .accept(MediaType.ALL))
+                .andExpect(status().isOk())
+                .andExpect(view().name("greeting"));
     }
 }

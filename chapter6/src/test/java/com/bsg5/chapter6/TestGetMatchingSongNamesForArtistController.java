@@ -16,7 +16,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @Test
 @WebAppConfiguration
 @ContextConfiguration(classes = GatewayAppWebConfig.class)
-public class TestGetMatchingSongNamesForArtistController  extends AbstractTestNGSpringContextTests {
+public class TestGetMatchingSongNamesForArtistController extends AbstractTestNGSpringContextTests {
 
     @Autowired
     private WebApplicationContext wac;
