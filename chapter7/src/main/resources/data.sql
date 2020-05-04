@@ -1,0 +1,13 @@
+INSERT INTO ARTISTS (ID, NAME)
+VALUES (1, 'Threadbare Loaf');
+INSERT INTO ARTISTS (ID, NAME)
+VALUES (2, 'Therapy Zeppelin');
+INSERT INTO ARTISTS (ID, NAME)
+VALUES (3, 'Clancy In Silt');
+
+
+
+
+
+
+
