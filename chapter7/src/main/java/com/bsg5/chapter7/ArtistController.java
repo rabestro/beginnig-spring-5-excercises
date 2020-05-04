@@ -19,9 +19,7 @@ public class ArtistController {
     }
 
     @GetMapping({"/artist/search/{name}", "/artist/search/"})
-    Artist findArtistByName(
-            @PathVariable(required = false) String name
-    ) throws SQLException {
+    Artist findArtistByName(@PathVariable(required = false) String name) throws SQLException {
         if (name != null) {
             return service.findArtistByName(name);
         } else {

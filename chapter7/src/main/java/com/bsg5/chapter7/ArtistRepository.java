@@ -32,8 +32,7 @@ public class ArtistRepository {
                 if (rs.next()) {
                     return new Artist(id, rs.getString("name"));
                 } else {
-                    throw new ArtistNotFoundException(id +
-                            " not found in artist database");
+                    throw new ArtistNotFoundException(id + " not found in artist database");
                 }
             }
         } catch (SQLException e) {
