@@ -55,8 +55,6 @@ w
 Gchapter6/src/test/java/com/bsg5/chapter6/TestVoteForSongController.java,1/9/19c1f95f6d4718a868d2838dae365d764124f12a
 t
 Dchapter7/src/test/java/com/bsg5/chapter7/TestGreetingController.java,3/3/33b697e088d2ab0bb1271e3c1fe8e006f04bb0ee
-b
-2chapter7/src/main/resources/application.properties,8/3/83907c28b7b154ddcf3de178c48dbf1755b5740f
 r
 Bchapter7/src/test/java/com/bsg5/chapter7/TestArtistController.java,7/a/7a42a5e3d98b3bfba7d4d448f8dee2ee9b2b3c2c
 d
