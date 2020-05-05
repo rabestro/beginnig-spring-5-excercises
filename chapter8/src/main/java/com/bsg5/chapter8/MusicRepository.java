@@ -11,20 +11,17 @@ import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.util.List;
 
-// tag::declaration[]
 @Repository
 public class MusicRepository {
     JdbcTemplate jdbcTemplate;
 
     MusicRepository(JdbcTemplate template) {
-        jdbcTemplate=template;
+        jdbcTemplate = template;
     }
 
-    // end::declaration[]
     @Autowired
     SongRowMapper songRowMapper;
 
-    // tag::findArtistById[]
     @Transactional
     Artist findArtistById(Integer id) {
         return jdbcTemplate.query(
@@ -41,7 +38,6 @@ public class MusicRepository {
                 .findFirst()
                 .orElse(null);
     }
-    // end::findArtistById[]
 
     @Transactional
     Artist findArtistByName(String name) {
@@ -111,7 +107,6 @@ public class MusicRepository {
                 (rs, rowNum) -> rs.getString("name"));
     }
 
-    // tag::getMatchingArtistNames[]
     @Transactional
     public List<String> getMatchingArtistNames(String prefix) {
         String selectSQL = "SELECT name FROM artists WHERE " +
@@ -126,7 +121,6 @@ public class MusicRepository {
                 new Object[]{prefix + "%"},
                 (rs, rowNum) -> rs.getString("name"));
     }
-    // end::getMatchingArtistNames[]
 
     @Transactional
     public Song getSong(String artistName, String name) {
@@ -149,8 +143,7 @@ public class MusicRepository {
                 .orElseGet(() -> {
                     KeyHolder keyHolder = new GeneratedKeyHolder();
                     jdbcTemplate.update(conn -> {
-                        PreparedStatement ps = conn.prepareStatement(insertSQL,
-                                Statement.RETURN_GENERATED_KEYS);
+                        PreparedStatement ps = conn.prepareStatement(insertSQL, Statement.RETURN_GENERATED_KEYS);
                         ps.setInt(1, artist.getId());
                         ps.setString(2, name);
                         ps.setInt(3, 0);
