@@ -95,3 +95,11 @@ p
 @chapter8/src/test/java/com/bsg5/chapter8/SongControllerTest.java,4/0/40754f6b8cf2ce0218c954be2bc709af183c21d0
 k
 ;chapter8/src/main/java/com/bsg5/chapter8/SongRowMapper.java,d/d/dd5db6b6372a9296b81a916d435b38a5c1145f62
+?
+settings.gradle,0/5/05efc8b1657769a27696d478ded1e95f38737233
+H
+chapter2/settings.gradle,7/9/7968f8efe471ddda07d7742cade041d180d6e980
+E
+chapter2/build.gradle,9/c/9c3fd1e53073052d9c4037233c96aa625bf453b3
+K
+chapter9common/build.gradle,4/f/4f0eedceabddda247072f51d48f70c8406188cbb
