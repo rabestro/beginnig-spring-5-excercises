@@ -1,7 +1,6 @@
 package com.bsg5.chapter9.common;
 
-public interface BaseArtist<ID>
-        extends BaseEntity<ID> {
+public interface BaseArtist<ID> extends BaseEntity<ID> {
 
     /**
      * Get the artist name

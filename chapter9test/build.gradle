@@ -10,8 +10,9 @@ dependencyManagement {
                 .plugin.SpringBootPlugin.BOM_COORDINATES
     }
 }
+
 dependencies {
-    compile "org.springframework.data:spring-data-commons"
-    compile "org.springframework:spring-tx"
-    compile "org.springframework:spring-beans"
+    compile "org.springframework.boot:spring-boot-starter-test"
+    compile "org.testng:testng:$testNgVersion"
+    compile project(":chapter9common")
 }

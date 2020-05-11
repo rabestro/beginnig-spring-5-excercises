@@ -2,7 +2,6 @@ package com.bsg5.chapter9.jpa;
 
 import com.bsg5.chapter9.common.BaseMusicService;
 import com.bsg5.chapter9.common.WildcardConverter;
-import org.springframework.stereotype.Component;
 
 public class MusicService extends BaseMusicService<Artist, Song, Integer> {
     MusicService(
